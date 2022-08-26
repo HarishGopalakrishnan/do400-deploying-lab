@@ -1,0 +1,238 @@
+    1  exit
+    2  python --version
+    3  python3 --version
+    4  node -v
+    5  sudo dnf module install nodejs:14 -y
+    6  node -v
+    7  java -version
+    8  sudo dnf install java-11-openjdk-devel -y
+    9  git --version
+   10  mkdir DO400
+   11  git clone https://github.com/HarishGopalakrishnan/DO400-apps.git
+   12  ls
+   13  cd DO400
+   14  git clone https://github.com/HarishGopalakrishnan/DO400-apps.git
+   15  rm -rf ../DO400-apps/
+   16  ls
+   17  cd DO400-apps/
+   18  head README.md
+   19  type README.md 
+   20  wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.6.52/
+   21  wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.6.52/openshift-client-linux-4.6.52.tar.gz
+   22  ls
+   23  cd ..
+   24  rm -rf DO400-apps/
+   25  wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.6.52/openshift-client-linux-4.6.52.tar.gz
+   26  git clone https://github.com/HarishGopalakrishnan/DO400-apps.git
+   27  echo $PATH
+   28  tar xf openshift-client-linux-4.6.52.tar.gz 
+   29  ls
+   30  sudo mv oc /usr/local/bin/
+   31  ls -l /usr/local/bin/
+   32  oc --version
+   33  oc version
+   34  oc login -u jisvjl -p 17d1f4173d2b479c8c9f https://api.ap46a.prod.ole.redhat.com:6443
+   35  oc new-project jisvjl-jenkins
+   36  oc get all
+   37  oc get template -n openshift | grep jenkins
+   38  oc new-app openshift/jenkins-ephemeral -p MEMORY_LIMIT=2048Mi
+   39  oc get pods -w
+   40  oc get pods
+   41  oc get pods -w
+   42  oc get pods 
+   43  oc get route jenkins
+   44  cd DO400-apps/simple-
+   45  cd DO400-apps/simple-webapp/
+   46  git checkout main
+   47  git checkout -b scripted-pipelines
+   48  git push -u origin scripted-pipelines
+   49  ls
+   50  vi backend/server.js 
+   51  node backend/test.js
+   52  echo $?
+   53  git commit -a -m "Refactor"
+   54  git push origin
+   55  cd ..
+   56  cp -Rv ~/DO400/DO400-apps/simple-webapp/ ~/DO400/pipelines-control
+   57  cd pipelines-control/
+   58  git init
+   59  git add .
+   60  git commit -m "Initial commit"
+   61  git branch -M main
+   62  git remote add origin https://github.com/HarishGopalakrishnan/do400-pipelines-control.git
+   63  vi Jenkinsfile
+   64  git add Jenkinsfile
+   65  git commit -m "Add Jenkins integration"
+   66  git push origin HEAD
+   67  vi Jenkinsfile 
+   68  git add Jenkinsfile 
+   69  git commit -m "Using a declarative pipeline"
+   70  git push origin HEAD
+   71  git pull
+   72  git pull origin main
+   73  git pull main
+   74  git merge main
+   75  git rm Jenkinsfile 
+   76  git merge main
+   77  git commit -m "Merge"
+   78  ls
+   79  vi Jenkinfile
+   80  git add Jenkinfile 
+   81  git commit -m "Using a declarative pipeline"
+   82  git push origin HEAD
+   83  vi Jenkinfile 
+   84  git add Jenkinfile 
+   85  git commit -m "Added conditional step"
+   86  git push origin HEAD
+   87  git checkout -b stage
+   88  vi Jenkinfile 
+   89  git checkout -b stage
+   90  vi Jenkinfile 
+   91  mv Jenkinfile Jenkinsfile
+   92  git add Jenkinsfile 
+   93  git commit -m "Added conditional step"
+   94  git push origin HEAD
+   95  git checkout -b stage
+   96  vi Jenkinsfile 
+   97  git add Jenkinsfile 
+   98  git commit -m "Added deploy step"
+   99  git push origin HEAD
+  100  vi a
+  101  ls
+  102  cd DO400/
+  103  ls
+  104  cd pipelines-control/
+  105  ls
+  106  git checkout -b stage
+  107  vi Jenkinsfile 
+  108  git add Jenkinsfile
+  109  git commit -m "Updated deploy message"
+  110  git push origin HEAD
+  111  cd ..
+  112  ls
+  113  git checkout main
+  114  cd DO400-apps/
+  115  git checkout main
+  116  cp -Rv home-automation-service ~/DO400/deploying-lab
+  117  cd ~/DO400/deploying-lab/
+  118  git init .
+  119  git remote add origin https://github.com/HarishGopalakrishnan/do400-deploying-lab.git
+  120  git add -A
+  121  git commit -m "Initial commit"
+  122  git branch -M main
+  123  git push origin main
+  124  vi Jenkinsfile
+  125  git add Jenkinsfile 
+  126  git commit -m "Added Jenkinsfile"
+  127  git push --set-upstream origin main
+  128  oc login -u jisvjl -p 17d1f4173d2b479c8c9f https://api.ap46a.prod.ole.redhat.com:6443
+  129  vi Jenkinsfile 
+  130  git add Jenkinsfile 
+  131  git commit -m "Added pipeline stage to build and push image"
+  132  git push
+  133  vi Jenkinsfile 
+  134  git add Jenkinsfile 
+  135  git commit -m "Added pipeline stage to build and push image"
+  136  git push
+  137  vi Jenkinsfile 
+  138  git add Jenkinsfile 
+  139  git commit -m "Added pipeline stage to build and push image"
+  140  git push
+  141  vi Jenkinsfile 
+  142  oc new-project RHT_OCP4_DEV_USER-deploying-lab-test
+  143  oc new-project oc new-project \-deploying-lab-test
+  144  oc new-project oc new-project jisvjl-deploying-lab-test
+  145  oc new-project jisvjl-deploying-lab-test
+  146  oc process -n jisvjl-deploying-lab-test -f kubefiles/application-template.yml -p QUAY_USER_OR_GROUP=harish_gopalakrishnan -p APP_IMAGE_NAME=do400-deploying-lab -p APP_IMAGE_TAG=latest | oc apply -n jisvjl-deploying-lab-test -f -
+  147  oc get deployment -w
+  148  oc get route home-automation -o jsonpath="{'http://'}{.spec.host}{'\n'}"
+  149  oc policy add-role-to-user edit system:serviceaccount:`jisvjl`-jenkins:jenkins -n jisvjl-deploying-lab-test
+  150  oc policy add-role-to-user edit system:serviceaccount:jisvjl-jenkins:jenkins -n jisvjl-deploying-lab-test
+  151  git checkout -b deployments
+  152  vi Jenkinsfile 
+  153  git add Jenkinsfile 
+  154  git commit -m "Added test deployment"
+  155  git push --set-upstream origin deployments
+  156  vi Jenkinsfile 
+  157  git add Jenkinsfile 
+  158  git commit -m "Added test deployment"
+  159  git push --set-upstream origin deployments
+  160  oc new-project jisvjl-deploying-lab-prod
+  161  oc process -n jisvjl-deploying-lab-prod -f kubefiles/application-template.yml -p QUAY_USER_OR_GROUP=YOUR_QUAY_USER -p APP_IMAGE_NAME=do400-deploying-lab -p APP_IMAGE_TAG=latest | oc apply -n jisvjl-deploying-lab-prod -f -
+  162  oc process -n jisvjl-deploying-lab-prod -f kubefiles/application-template.yml -p QUAY_USER_OR_GROUP=harish_gopalakrishnan -p APP_IMAGE_NAME=do400-deploying-lab -p APP_IMAGE_TAG=latest | oc apply -n jisvjl-deploying-lab-prod -f -
+  163  oc get deployment 
+  164  oc get route home-automation -o jsonpath="{'http://'}{.spec.host}{'\n'}"
+  165  oc policy add-role-to-user edit system:serviceaccount:jisvjl-jenkins:jenkins -n jisvjl-deploying-lab-prod
+  166  vi Jenkinsfile 
+  167  git add Jenkinsfile 
+  168  git commit -m "Added prod deployment"
+  169  git push
+  170  git checkout main
+  171  git merge deployments
+  172  git push
+  173  oc rollout history deployment home-automation
+  174  vi Jenkinsfile 
+  175  git add Jenkinsfile 
+  176  git commit -m "Added prod deployment"
+  177  git push
+  178  oc rollout history deployment home-automation
+  179  ls
+  180  cd ..
+  181  ls
+  182  cd ..
+  183  ls
+  184  cd DO400/
+  185  ls
+  186  cd deploying-lab/
+  187  ls
+  188  git stat
+  189  vi Jenkinsfile 
+  190  history
+  191  ls
+  192  cd DO400/
+  193  ls
+  194  ls deploying-lab/kubefiles/application-template.yml 
+  195  cat deploying-lab/kubefiles/application-template.yml 
+  196  ls
+  197  cd DO400-apps/
+  198  ls
+  199  cd ..
+  200  ls
+  201  cd deploying-lab/
+  202  ls
+  203  cat kubefiles/application-template.yml 
+  204  ls
+  205  cat pom.xml 
+  206  ls
+  207  cat README.md 
+  208  cd src
+  209  ls
+  210  cd main/
+  211  ls
+  212  cd docker/
+  213  ls
+  214  cd ../java/
+  215  ls
+  216  cd com/redhat/training/home/automation/lights/
+  217  ls
+  218  cat LightSystem.java 
+  219  cat ConsoleLightSystem.java 
+  220  ls
+  221  cd ..
+  222  ls
+  223  cat HomeAutomation.java 
+  224  cat HomeResource.java 
+  225  cat RoomConditions.java 
+  226  cd rules/
+  227  ls
+  228  cd 
+  229  ls
+  230  cd DO400/
+  231  ls
+  232  cd deploying-lab/
+  233  git stat
+  234  git status
+  235  git branch
+  236  which oc
+  237  history
+  238  history > history.txt
